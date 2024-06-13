@@ -1,2 +1,3 @@
 # Firestorm-Chess
-A UCI Chess Engine written in C++
+
+![alt text](https://github.com/deoshreyas/Firestorm-Chess/blob/main/Firestorm-Logo.png)
