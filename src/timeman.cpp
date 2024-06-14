@@ -11,6 +11,7 @@ int GetThinkingTime(chess::Board board, int wtime, int btime, int winc, int binc
         urgencyFactor = 2; // little time left
     } else {
         urgencyFactor = 1; // enough time left
+    }
 
     int timeForThisMove = timeRemainingMs / movesToGo * outOfBookFactor / urgencyFactor;
 
