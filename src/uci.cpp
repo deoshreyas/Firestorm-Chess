@@ -198,7 +198,7 @@ void UCI::findMove(int max) {
             break;
         }
         best_move = curr_best;
-        std::cout << "info depth " << i << " nodes " << info.nodes << " score " << best_move.score() << " pv " << best_move << std::endl;
+        std::cout << "info depth " << i << " nodes " << info.nodes << " score cp " << best_move.score() / 100 << " pv " << best_move << std::endl;
     }
     std::cout << "bestmove " << chess::uci::moveToUci(best_move) << std::endl;
     noOfMovesOutOfBook++;
