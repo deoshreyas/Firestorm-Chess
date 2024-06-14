@@ -267,7 +267,7 @@ int evaluate(chess::Board board) {
         eval += (mobility(board, chess::Color::WHITE) - mobility(board, chess::Color::BLACK));
         eval += (king_safety(board, chess::Color::WHITE) - king_safety(board, chess::Color::BLACK));
     } else {
-        eval *= 2;
+        egWeight *= 2;
     }
     eval += king_endgame_eval(board, chess::Color::WHITE, egWeight) - king_endgame_eval(board, chess::Color::BLACK, egWeight);
     return (board.sideToMove() == chess::Color::WHITE ? eval : -eval);
