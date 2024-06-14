@@ -250,7 +250,7 @@ int king_endgame_eval(chess::Board board, chess::Color c, int endgameWeight) {
     int distBwKings = distBwFiles + distBwRanks;
     eval += 14 - distBwKings;
 
-    return eval*endgameWeight/5;
+    return eval*endgameWeight/10;
 }
 
 // Returns the evaluation for a given position
@@ -266,7 +266,9 @@ int evaluate(chess::Board board) {
     if (!egWeight>115) { // if we are in the endgame, mobility and safety scores don't matter much
         eval += (mobility(board, chess::Color::WHITE) - mobility(board, chess::Color::BLACK));
         eval += (king_safety(board, chess::Color::WHITE) - king_safety(board, chess::Color::BLACK));
-    } 
+    } else {
+        eval *= 2;
+    }
     eval += king_endgame_eval(board, chess::Color::WHITE, egWeight) - king_endgame_eval(board, chess::Color::BLACK, egWeight);
     return (board.sideToMove() == chess::Color::WHITE ? eval : -eval);
 }
