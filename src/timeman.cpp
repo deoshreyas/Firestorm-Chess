@@ -3,20 +3,16 @@
 int GetThinkingTime(chess::Board board, int wtime, int btime, int winc, int binc, int movesToGo, int outOfBookMoves) {
     int timeRemainingMs = board.sideToMove()==chess::Color::WHITE ? wtime : btime;
     int incrementMs = board.sideToMove()==chess::Color::WHITE ? winc : binc;
-
-    int outOfBookFactor = std::min(outOfBookMoves, 10);
-    int urgencyFactor = 1;
-
-    if (timeRemainingMs / movesToGo < 5000) {
-        urgencyFactor = 2; // little time left
+    
+    int timeForThisMove;
+    if (outOfBookMoves <= 40) {
+        timeForThisMove = timeRemainingMs / (71 - outOfBookMoves); // spend more time in the middle games
     } else {
-        urgencyFactor = 1; // enough time left
+        timeForThisMove = timeRemainingMs / 30; // endgames should be faster
     }
 
-    int timeForThisMove = timeRemainingMs / movesToGo * outOfBookFactor / urgencyFactor;
-
     // Add increment to the time for this move
-    timeForThisMove += incrementMs;
+    timeForThisMove += incrementMs / (2 * movesToGo);
 
     // If time for this move is less than 0
     // Use 0.1 seconds to at least get some move 
