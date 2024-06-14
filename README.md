@@ -26,8 +26,14 @@ Firestorm is a Chess Engine written in C++ that follows the UCI (Universal Chess
 - Basic Null Move pruning
 - Basic Move Orderig that recognizes TT Moves, the MVV-LVA heuristic and promotions
 
+## :desktop_computer: How to run locally
+Just clone the repository on your machine, and compile all the files using a C++ compiler. Please ensure that the `books\` directory is also present with the executable if you want to use an opening book like `komodo.bin`.
+
 ## :sparkles: Gratitude
 - @Disservin for creating the [C++ Chess library](https://github.com/disservin/chess-library/) which helped me focus on the algorithms and heuristics instead of worrying (too much) about things like move generation, zobrist hashing, etcetera
 - The [Chess Programming Wiki](https://www.chessprogramming.org/Main_Page) for being such a brilliant source of beginner, intermediate and advanced Chess Engine concepts
 - [Sebastian Lague](https://www.youtube.com/c/SebastianLague) on YouTube for inspiring me to attempt to create my own Chess Engine
-- The creators of the Komodo chess engine for the `komodo.bin` Polyglot Chess Opening Book which Firestorm currently uses
+- The creators of the Komodo Chess Engine for the `komodo.bin` Polyglot Chess Opening Book which Firestorm currently uses
+
+## :grey_question: How to help
+You can help by pointing out flaws in the engine. Feel free to open pull requests, or discuss issues. If you have ideas on how to improve the engine, feel free to point those out as well. I have done my best to ensure all _known_ bugs have been removed, but since this is my first _proper_ chess engine, it is very likely that some are still present. If you encounter such bugs, please let me know.
