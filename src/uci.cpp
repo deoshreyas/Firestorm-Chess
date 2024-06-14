@@ -180,7 +180,7 @@ void UCI::findMove(int max) {
     }
     // Calculate time control for this move
     int moveTime = 0;
-    if (info.duration==-1 && wtime>0 && btime>0 && winc>0 && binc>0) { // if movetime is not set
+    if (info.duration==-1 && wtime>0 && btime>0) { // if movetime is not set
         moveTime = GetThinkingTime(board, wtime, btime, winc, binc, movestogo, noOfMovesOutOfBook);
         std::thread th2(&UCI::timer, this, moveTime);
         th2.detach();
