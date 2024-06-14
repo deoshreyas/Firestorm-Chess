@@ -12,7 +12,7 @@ const char *path = "books/komodo.bin";
 Reader::Book book;
 
 // For Time Management
-int noOfMovesOutOfBook = 0;
+int noOfMovesOutOfBook = 1;
 
 // Get a random move from a list of possible moves 
 std::string GetRandomMove(std::vector<std::string> moves) {
@@ -174,7 +174,7 @@ void UCI::findMove(int max) {
             std::cout << "bestmove " << book_move << std::endl;
             info.stopped = true;
             info.nodes = 0; 
-            noOfMovesOutOfBook = 0; // reset counter if found a book move
+            noOfMovesOutOfBook = 1; // reset counter if found a book move
             return;
         }
     }
